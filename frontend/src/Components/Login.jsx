@@ -32,6 +32,9 @@ const Login = () => {
      console.log(data)
      localStorage.setItem("UserToken",data.token)
     } catch (error) {
+      if(error.response.status==400){
+        alert(error.response.data.errors[0].msg)
+      }
       console.error('Error:', error);
     }
   };

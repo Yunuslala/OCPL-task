@@ -31,6 +31,9 @@ const SignUp = () => {
         Navigate('/Login')
         console.log(ch)
     } catch (error) {
+      if(error.response.status==400){
+        alert(error.response.data.errors[0].msg)
+      }
         console.log(error)
     }
    
